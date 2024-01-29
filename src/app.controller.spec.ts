@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getServerstatus()).toBe('Hello World!');
+    it('should return server status', () => {
+      expect(appController.getServerstatus()).toBe(
+        'User Microservice Server Running in test',
+      );
     });
   });
 });
