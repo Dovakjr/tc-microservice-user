@@ -21,4 +21,8 @@ export class UserAdapterInMemory implements IUserRepository {
     }
     return Promise.resolve(user);
   }
+
+  async delete(cpf: string): Promise<void> {
+    this.items = this.items.filter((user) => user.cpf !== cpf);
+  }
 }

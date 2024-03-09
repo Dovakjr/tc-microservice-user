@@ -34,4 +34,13 @@ export class UserRepositorySequelize implements IUserRepository {
     }
     return new User(userModel.cpf, userModel.name, userModel.email);
   }
+
+  async delete(id: any): Promise<User> {
+    const user = await this.userModel.findByPk(id);
+    if (!user) {
+      throw new Error('Usuário não encontrado');
+    }
+    await user.destroy();
+    return new User(user.cpf, user.name, user.email);
+  }
 }
